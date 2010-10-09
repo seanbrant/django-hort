@@ -34,10 +34,3 @@ def chunk(context, iterable, n, asvar):
 def section(context, iterable, n, asvar):
     context[asvar] = iterators.section(iterable, n)
     return ''
-
-
-@tag(register, (
-    Variable(),
-    Constant('as'),
-    Name(),
-))
