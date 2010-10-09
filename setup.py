@@ -19,7 +19,7 @@ setup(
 
     author='Sean Brant',
     author_email='brant.sean@gmail.com',
-    packages=('hort',)
+    packages=('hort',),
     requires=(
         'django',
         'django-reversetag',
