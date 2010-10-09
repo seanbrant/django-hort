@@ -1,5 +1,5 @@
 import os
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 
 def read(fname):
@@ -19,8 +19,11 @@ setup(
 
     author='Sean Brant',
     author_email='brant.sean@gmail.com',
-    packages=['hort'],
-    requires=[
+    packages=find_packages(),
+    package_data={
+        'hort': ['templates/hort/*.html'],
+    },
+    install_requires=[
         'django',
         'django-reversetag',
         'django-templatetag-sugar',
