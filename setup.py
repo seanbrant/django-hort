@@ -19,13 +19,13 @@ setup(
 
     author='Sean Brant',
     author_email='brant.sean@gmail.com',
-    packages=('hort',),
-    requires=(
+    packages=['hort'],
+    requires=[
         'django',
         'django-reversetag',
         'django-templatetag-sugar',
-    ),
-    classifiers=(
+    ],
+    classifiers=[
         'Development Status :: 4 - Beta',
         'Framework :: Django',
         'Intended Audience :: Developers',
@@ -33,5 +33,5 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Topic :: Internet :: WWW/HTTP',
-    ),
+    ],
 )
