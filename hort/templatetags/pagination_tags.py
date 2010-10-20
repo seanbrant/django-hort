@@ -28,13 +28,13 @@ def pagination(context, object_list_view,
         page_range = [n for n in range(1, pages + 1) if n > 0 and n <= pages]
     elif page <= inside_range:
         page_range = [n for n in range(1, pagination_range + 1) if n > 0 and n <= pages]
-        pages_after = [n + context["pages"] for n in range(0, -pagination_trailing, -1)]
+        pages_after = [n + pages for n in range(0, -pagination_trailing, -1)]
     elif page > pages - inside_range:
         page_range = [n for n in range(pages - pagination_range + 1, pages + 1) if n > 0 and n <= pages]
         pages_before = [n + 1 for n in range(0, pagination_trailing)]
     else:
         page_range = [n for n in range(page - adjacent_pages, page + adjacent_pages + 1) if n > 0 and n <= pages]
-        pages_after = [n + context["pages"] for n in range(0, -pagination_trailing, -1)]
+        pages_after = [n + pages for n in range(0, -pagination_trailing, -1)]
         pages_before = [n + 1 for n in range(0, pagination_trailing)]
 
     return {
