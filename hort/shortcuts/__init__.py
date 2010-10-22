@@ -14,6 +14,7 @@ def render(template_name, request=None, context=None,
     else:
         template = template_loader.get_template(template_name)
 
+    context = context or {}
     for k, v in context.items():
         if callable(v):
             context[k] = v()
