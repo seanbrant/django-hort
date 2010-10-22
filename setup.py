@@ -25,7 +25,6 @@ setup(
     },
     install_requires=[
         'django',
-        'django-reversetag',
         'django-templatetag-sugar',
     ],
     classifiers=[

@@ -1,25 +1,25 @@
-{% load reversetag %}
+{% load url_tags %}
 
 <div class="pagination">
     {% if page_obj.has_previous %}
-    <a class="pagination-prev" href="{% reverse object_list_view page_obj.previous_page_number %}"><</a>
+    <a class="pagination-prev" href="{% lazyreverse reverse page_obj.previous_page_number %}"><</a>
     {% endif %}
     {% for number in pages_before %}
-    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% reverse object_list_view number %}">{{ number }}</a>
+    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% lazyreverse reverse number %}">{{ number }}</a>
     {% endfor %}
     {% if pages_before %}
     ...
     {% endif %}
     {% for number in page_range %}
-    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% reverse object_list_view number %}">{{ number }}</a>
+    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% lazyreverse reverse number %}">{{ number }}</a>
     {% endfor %}
     {% if pages_after %}
     ...
     {% endif %}
     {% for number in pages_after %}
-    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% reverse object_list_view number %}">{{ number }}</a>
+    <a class="pagination-number{% if page_obj.number == number %} pagination-number-active{% endif %}" href="{% lazyreverse reverse number %}">{{ number }}</a>
     {% endfor %}
     {% if page_obj.has_next %}
-    <a class="pagination-next" href="{% reverse object_list_view page_obj.next_page_number %}">></a>
+    <a class="pagination-next" href="{% lazyreverse reverse page_obj.next_page_number %}">></a>
     {% endif %}
 </div>

@@ -9,11 +9,8 @@ PAGINATION_TRAILING = getattr(settings, 'PAGINATION_TRAILING', 2)
 
 
 @register.inclusion_tag('hort/pagination.html', takes_context=True)
-def pagination(context, object_list_view,
-        pagination_range=PAGINATION_RANGE,
-        pagination_trailing=PAGINATION_TRAILING):
-    page_obj = context['page_obj']
-    paginator = context['paginator']
+def pagination(context, reverse, paginator, page_obj,
+        pagination_range=PAGINATION_RANGE, pagination_trailing=PAGINATION_TRAILING):
     pages = paginator.num_pages
     page = page_obj.number
     adjacent_pages = pagination_trailing * 2
@@ -38,7 +35,7 @@ def pagination(context, object_list_view,
         pages_before = [n + 1 for n in range(0, pagination_trailing)]
 
     return {
-        'object_list_view': object_list_view,
+        'reverse': reverse,
         'page_obj': page_obj,
         'paginator': paginator,
         'page_range': page_range,
